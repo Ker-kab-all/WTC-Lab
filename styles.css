@@ -1,0 +1,122 @@
+/* Custom styling for Railroad.ai Landing Page */
+/* Base Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Heading font styling */
+h1,
+h2,
+h3,
+.font-display {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Glassmorphism Styles */
+/* 1. Navigation Pill */
+.glass-pill {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px) saturate(110%);
+  -webkit-backdrop-filter: blur(12px) saturate(110%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Glassmorphic Waitlist Badge */
+.glass-badge {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 3. Subscription Form Capsule */
+.glass-form {
+  background: rgba(255, 255, 255, 0.521);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.63);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* 4. White Glass Button (Get Started) */
+.glass-btn-white {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+}
+
+.glass-btn-white:hover {
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* 5. Submit Waitlist Button */
+.glass-btn-submit {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.glass-btn-submit:hover {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.35);
+}
+
+/* Toast Notifications */
+.glass-toast-success {
+  background: rgba(16, 185, 129, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.glass-toast {
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom Animation Keyframes */
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Input Placeholder color overrides */
+::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Input Focus Glows */
+input:focus {
+  outline: none;
+  box-shadow: none;
+}

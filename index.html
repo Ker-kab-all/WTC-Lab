@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Railroad.ai — Focus in a Constantly Distracted World</title>
+  <meta name="description"
+    content="Cut through the noise of notifications, endless feeds, and constant interruptions. Learn how to reclaim your attention and do meaningful work that truly matters.">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            railroad: {
+              dark: '#1e293b',
+              gray: '#64748b',
+              accent: '#0f172a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Inter and Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="font-sans antialiased text-slate-800 h-screen w-screen overflow-hidden select-none bg-black">
+
+  <!-- Background Train Window Layout Container -->
+  <div class="relative w-full h-full bg-cover bg-center flex flex-col justify-between p-6 sm:p-8"
+    style="background-image: url('assets/train-window.png');">
+
+    <!-- Light Leak / Glow Overlay for Premium Aesthetics -->
+    <div
+      class="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/5 pointer-events-none mix-blend-overlay z-0">
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="relative w-full flex items-center justify-between z-10 max-w-7xl mx-auto">
+
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2 group transition-transform duration-300 active:scale-95">
+        <div class="flex items-center justify-center text-white drop-shadow-md text-2xl">
+          <i class="fa-solid fa-cloud animate-pulse-slow"></i>
+        </div>
+        <span
+          class="text-xl font-bold tracking-tight text-white drop-shadow-md font-display group-hover:opacity-90 transition-opacity">
+          Railroad.ai
+        </span>
+      </a>
+
+      <!-- Glassmorphic Navigation Menu (Centered) -->
+      <nav
+        class="hidden md:flex items-center gap-1 glass-pill px-2 py-1.5 border border-white/20 shadow-lg backdrop-blur-md rounded-full">
+        <a href="#how-it-works"
+          class="text-xs font-medium text-white/90 hover:text-white px-4 py-1.5 rounded-full hover:bg-white/10 transition-all duration-200">How
+          it works?</a>
+        <a href="#pricing"
+          class="text-xs font-medium text-white/90 hover:text-white px-4 py-1.5 rounded-full hover:bg-white/10 transition-all duration-200">Pricing</a>
+        <a href="#products"
+          class="text-xs font-medium text-white/90 hover:text-white px-4 py-1.5 rounded-full hover:bg-white/10 transition-all duration-200">Products</a>
+        <a href="#blog"
+          class="text-xs font-medium text-white/90 hover:text-white px-4 py-1.5 rounded-full hover:bg-white/10 transition-all duration-200">Blog</a>
+      </nav>
+
+      <!-- Right Action Button -->
+      <div class="flex items-center gap-4">
+        <a href="#get-started"
+          class="glass-btn-white text-xs font-semibold px-5 py-2.5 rounded-full bg-white text-slate-900 border border-white hover:bg-white/90 shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 font-display">
+          Get Started
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button onclick="toggleMobileMenu()"
+          class="md:hidden flex items-center justify-center text-white drop-shadow-md text-xl w-10 h-10 rounded-full hover:bg-white/10 transition-all duration-200"
+          aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars" id="menu-icon"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay (Hidden by Default) -->
+    <div id="mobile-menu"
+      class="fixed inset-0 bg-black/60 backdrop-blur-md z-40 flex flex-col justify-center items-center gap-6 md:hidden opacity-0 pointer-events-none transition-all duration-300">
+      <a href="#how-it-works" onclick="toggleMobileMenu()"
+        class="text-xl font-medium text-white hover:text-white/80 transition-colors">How it works?</a>
+      <a href="#pricing" onclick="toggleMobileMenu()"
+        class="text-xl font-medium text-white hover:text-white/80 transition-colors">Pricing</a>
+      <a href="#products" onclick="toggleMobileMenu()"
+        class="text-xl font-medium text-white hover:text-white/80 transition-colors">Products</a>
+      <a href="#blog" onclick="toggleMobileMenu()"
+        class="text-xl font-medium text-white hover:text-white/80 transition-colors">Blog</a>
+      <a href="#get-started" onclick="toggleMobileMenu()"
+        class="mt-4 px-8 py-3 rounded-full bg-white text-slate-900 text-lg font-semibold shadow-lg hover:scale-105 active:scale-95 transition-all">Get
+        Started</a>
+    </div>
+
+    <!-- Main Content Area: Centered perfectly within the main train window frame -->
+    <main
+      class="relative z-10 w-full flex-grow flex flex-col items-center justify-center max-w-4xl mx-auto px-4 text-center">
+
+      <!-- Glassmorphic Subscriber Badge -->
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 glass-badge border border-white/10 shadow-sm backdrop-blur-md rounded-full mb-6 transform hover:scale-102 transition-transform duration-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="text-[10px] font-medium tracking-wider uppercase text-white/70">10K+ already subscribed</span>
+      </div>
+
+      <!-- Main Headline (Dark Text on sky/landscape overlay) -->
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-slate-800 leading-tight font-display drop-shadow-sm max-w-3xl">
+        Focus in a Constantly<br>
+        <span class="text-slate-850">Distracted World</span>
+      </h1>
+
+      <!-- Subtitle/Description -->
+      <p class="mt-4 text-sm sm:text-base md:text-lg text-slate-1000 font-medium max-w-2xl leading-relaxed">
+        Cut through the noise of notifications, endless feeds, and constant interruptions.<br class="hidden sm:inline">
+        Learn how to reclaim your attention and do meaningful work that truly matters.
+      </p>
+
+      <!-- Glassmorphic Subscription Form -->
+      <form id="waitlist-form" onsubmit="handleSubscribe(event)"
+        class="mt-8 w-full max-w-lg glass-form border border-white/20 shadow-xl backdrop-blur-lg rounded-full p-1.5 flex items-center justify-between gap-2 transition-all duration-300 focus-within:ring-2 focus-within:ring-white/30 focus-within:border-white/40">
+        <div class="flex-grow flex items-center pl-4 gap-2">
+          <i class="fa-regular fa-envelope text-white/50 text-base"></i>
+          <input type="email" id="email-input" required placeholder="Enter your email"
+            class="w-full bg-transparent border-0 text-white placeholder-white/50 text-sm focus:outline-none focus:ring-0 select-text py-2">
+        </div>
+        <button type="submit"
+          class="glass-btn-submit text-xs font-semibold px-6 py-3 rounded-full bg-white text-slate-900 hover:bg-white/90 shadow-md transition-all duration-300 hover:scale-[1.02] active:scale-98 whitespace-nowrap">
+          Join Waitlist
+        </button>
+      </form>
+
+      <!-- Form Success/Feedback message area -->
+      <div id="form-feedback"
+        class="mt-3 text-xs font-semibold text-emerald-600 drop-shadow-sm transition-all duration-300 opacity-0 transform translate-y-2">
+        <i class="fa-solid fa-circle-check mr-1.5"></i>Thank you! You have joined the waitlist.
+      </div>
+
+    </main>
+
+    <!-- Empty Footer Spacer or subtle footer info (just keeps center alignment perfect) -->
+    <footer
+      class="relative z-10 w-full flex items-center justify-center max-w-7xl mx-auto py-2 text-center pointer-events-none">
+      <span class="text-[9px] font-medium tracking-widest uppercase text-white/30 drop-shadow-sm">
+        &copy; 2026 Railroad.ai. All rights reserved.
+      </span>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification Container (Fixed) -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2.5 pointer-events-none"></div>
+
+  <!-- Interactive JavaScript logic -->
+  <script>
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const icon = document.getElementById('menu-icon');
+      const isClosed = menu.classList.contains('pointer-events-none');
+
+      if (isClosed) {
+        menu.classList.remove('opacity-0', 'pointer-events-none');
+        menu.classList.add('opacity-100');
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-xmark');
+      } else {
+        menu.classList.add('opacity-0', 'pointer-events-none');
+        menu.classList.remove('opacity-100');
+        icon.classList.add('fa-bars');
+        icon.classList.remove('fa-xmark');
+      }
+    }
+
+    // Subscription Form Submission
+    function handleSubscribe(e) {
+      e.preventDefault();
+      const emailInput = document.getElementById('email-input');
+      const feedback = document.getElementById('form-feedback');
+      const email = emailInput.value.trim();
+
+      if (email) {
+        // Show success feedback
+        feedback.classList.remove('opacity-0', 'translate-y-2');
+        feedback.classList.add('opacity-100', 'translate-y-0');
+
+        // Trigger Toast Notification
+        showToast(`Successfully subscribed: ${email}`, 'success');
+
+        // Reset Form
+        emailInput.value = '';
+        setTimeout(() => {
+          feedback.classList.remove('opacity-100', 'translate-y-0');
+          feedback.classList.add('opacity-0', 'translate-y-2');
+        }, 5000);
+      }
+    }
+
+    // Toast Generator
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+
+      toast.className = `flex items-center gap-3 px-4 py-3 rounded-xl shadow-2xl border backdrop-blur-md transition-all duration-300 transform translate-y-4 opacity-0 pointer-events-auto max-w-sm glass-${type === 'success' ? 'toast-success' : 'toast'}`;
+
+      const icon = type === 'success' ? 'fa-circle-check text-emerald-400' : 'fa-circle-info text-sky-400';
+      toast.innerHTML = `
+        <i class="fa-solid ${icon} text-base"></i>
+        <div class="text-xs font-semibold text-white/95">${message}</div>
+      `;
+
+      container.appendChild(toast);
+
+      // Animate in
+      setTimeout(() => {
+        toast.classList.remove('translate-y-4', 'opacity-0');
+      }, 50);
+
+      // Animate out and remove
+      setTimeout(() => {
+        toast.classList.add('translate-y-2', 'opacity-0');
+        setTimeout(() => {
+          toast.remove();
+        }, 300);
+      }, 4000);
+    }
+  </script>
+
+</body>
+
+</html>
